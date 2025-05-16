@@ -21,129 +21,110 @@ export default function Step1ApplicantDetails({ initialValues, onNext }) {
       onSubmit={onNext}
     >
       {({ errors, touched }) => (
-        <Form className="container mt-5 p-4 shadow-lg rounded bg-light">
-          <h2 className="text-center mb-4">Applicant's Details</h2>
+        <Form className="container mt-4">
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label htmlFor="name" className="form-label">Full Name</label>
+              <Field
+                name="name"
+                placeholder="Enter your full name"
+                className={`form-control ${errors.name && touched.name ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="name" component="div" className="text-danger" />
+            </div>
 
-          {/* Full Name */}
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">Name</label>
-            {errors.name && touched.name && (
-              <div className="text-danger mb-2">{errors.name}</div>
-            )}
-            <Field
-              name="name"
-              className={`form-control ${errors.name && touched.name ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="its" className="form-label">ITS</label>
+              <Field
+                name="its"
+                placeholder="Enter your ITS"
+                className={`form-control ${errors.its && touched.its ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="its" component="div" className="text-danger" />
+            </div>
 
-          {/* ITS */}
-          <div className="mb-3">
-            <label htmlFor="its" className="form-label">ITS</label>
-            {errors.its && touched.its && (
-              <div className="text-danger mb-2">{errors.its}</div>
-            )}
-            <Field
-              name="its"
-              className={`form-control ${errors.its && touched.its ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="age" className="form-label">Age</label>
+              <Field
+                name="age"
+                type="number"
+                placeholder="Enter your age"
+                className={`form-control ${errors.age && touched.age ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="age" component="div" className="text-danger" />
+            </div>
 
-          {/* Age */}
-          <div className="mb-3">
-            <label htmlFor="age" className="form-label">Age</label>
-            {errors.age && touched.age && (
-              <div className="text-danger mb-2">{errors.age}</div>
-            )}
-            <Field
-              name="age"
-              type="number"
-              className={`form-control ${errors.age && touched.age ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="mauzeJamiat" className="form-label">Mauze & Jamiat</label>
+              <Field
+                name="mauzeJamiat"
+                placeholder="Enter Mauze & Jamiat"
+                className={`form-control ${errors.mauzeJamiat && touched.mauzeJamiat ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="mauzeJamiat" component="div" className="text-danger" />
+            </div>
 
-          {/* Mauze & Jamiat */}
-          <div className="mb-3">
-            <label htmlFor="mauzeJamiat" className="form-label">Mauze & Jamiat</label>
-            {errors.mauzeJamiat && touched.mauzeJamiat && (
-              <div className="text-danger mb-2">{errors.mauzeJamiat}</div>
-            )}
-            <Field
-              name="mauzeJamiat"
-              className={`form-control ${errors.mauzeJamiat && touched.mauzeJamiat ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="contactNumber" className="form-label">Contact Number</label>
+              <Field
+                name="contactNumber"
+                placeholder="Enter your contact number"
+                className={`form-control ${errors.contactNumber && touched.contactNumber ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="contactNumber" component="div" className="text-danger" />
+            </div>
 
-          {/* Contact Number */}
-          <div className="mb-3">
-            <label htmlFor="contactNumber" className="form-label">Contact Number</label>
-            {errors.contactNumber && touched.contactNumber && (
-              <div className="text-danger mb-2">{errors.contactNumber}</div>
-            )}
-            <Field
-              name="contactNumber"
-              className={`form-control ${errors.contactNumber && touched.contactNumber ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="email" className="form-label">Email ID</label>
+              <Field
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                className={`form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
+              />
+              <ErrorMessage name="email" component="div" className="text-danger" />
+            </div>
 
-          {/* Email ID */}
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">Email ID</label>
-            {errors.email && touched.email && (
-              <div className="text-danger mb-2">{errors.email}</div>
-            )}
-            <Field
-              name="email"
-              type="email"
-              className={`form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="fullResidentialAddress" className="form-label">Full Residential Address</label>
+              <Field
+                name="fullResidentialAddress"
+                as="textarea"
+                placeholder="Enter your full residential address"
+                className={`form-control ${errors.fullResidentialAddress && touched.fullResidentialAddress ? 'is-invalid' : ''}`}
+                rows="3"
+              />
+              <ErrorMessage name="fullResidentialAddress" component="div" className="text-danger" />
+            </div>
 
-          {/* Full Residential Address */}
-          <div className="mb-3">
-            <label htmlFor="fullResidentialAddress" className="form-label">Full Residential Address</label>
-            {errors.fullResidentialAddress && touched.fullResidentialAddress && (
-              <div className="text-danger mb-2">{errors.fullResidentialAddress}</div>
-            )}
-            <Field
-              name="fullResidentialAddress"
-              as="textarea"
-              className={`form-control ${errors.fullResidentialAddress && touched.fullResidentialAddress ? 'is-invalid' : ''}`}
-              rows="3"
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="presentOccupationAndWorkAddress" className="form-label">Present Occupation and Address</label>
+              <Field
+                name="presentOccupationAndWorkAddress"
+                as="textarea"
+                placeholder="Enter your occupation and place of work"
+                className={`form-control ${errors.presentOccupationAndWorkAddress && touched.presentOccupationAndWorkAddress ? 'is-invalid' : ''}`}
+                rows="3"
+              />
+              <ErrorMessage name="presentOccupationAndWorkAddress" component="div" className="text-danger" />
+            </div>
 
-          {/* Present Occupation and Address of Place of Work */}
-          <div className="mb-3">
-            <label htmlFor="presentOccupationAndWorkAddress" className="form-label">Present Occupation and Address of Place of Work</label>
-            {errors.presentOccupationAndWorkAddress && touched.presentOccupationAndWorkAddress && (
-              <div className="text-danger mb-2">{errors.presentOccupationAndWorkAddress}</div>
-            )}
-            <Field
-              name="presentOccupationAndWorkAddress"
-              as="textarea"
-              className={`form-control ${errors.presentOccupationAndWorkAddress && touched.presentOccupationAndWorkAddress ? 'is-invalid' : ''}`}
-              rows="3"
-            />
-          </div>
+            <div className="col-md-6 mb-3">
+              <label htmlFor="otherRelevantInfo" className="form-label">Other Relevant Information</label>
+              <Field
+                name="otherRelevantInfo"
+                as="textarea"
+                placeholder="Enter any other relevant information"
+                className={`form-control ${errors.otherRelevantInfo && touched.otherRelevantInfo ? 'is-invalid' : ''}`}
+                rows="3"
+              />
+              <ErrorMessage name="otherRelevantInfo" component="div" className="text-danger" />
+            </div>
 
-          {/* Other Relevant Information */}
-          <div className="mb-3">
-            <label htmlFor="otherRelevantInfo" className="form-label">Other Relevant Information if Any</label>
-            {errors.otherRelevantInfo && touched.otherRelevantInfo && (
-              <div className="text-danger mb-2">{errors.otherRelevantInfo}</div>
-            )}
-            <Field
-              name="otherRelevantInfo"
-              as="textarea"
-              className={`form-control ${errors.otherRelevantInfo && touched.otherRelevantInfo ? 'is-invalid' : ''}`}
-              rows="3"
-            />
           </div>
 
           <div className="d-flex justify-content-end mt-4">
-            <button type="submit" className="btn btn-primary">
-              Next
-            </button>
+            <button type="submit" className="btn btn-primary">Next Step</button>
           </div>
         </Form>
       )}
