@@ -1,0 +1,11 @@
+Deployment Outline (AWS)
+
+EC2: Host Node.js (if using SSR) or serve static React build behind NGINX.
+
+RDS (MySQL): Use credentials in db.php.
+
+S3: Store generated PDFs; configure CORS.
+
+IAM & Security Groups: Restrict access appropriately.
+
+SSL: Use ACM + ELB or Let's Encrypt.

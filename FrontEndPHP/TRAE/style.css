@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f6f9ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.container .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.progress-bar {
+    display: flex;
+    margin: 40px 0;
+    user-select: none;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.progress-bar .step {
+    position: relative;
+    text-align: center;
+    width: calc(100% / 6 - 20px);
+}
+
+.progress-bar .step p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.progress-bar .step .bullet {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #333;
+    display: inline-block;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.progress-bar .step .bullet.active {
+    border-color: #4070f4;
+    background: #4070f4;
+}
+
+.progress-bar .step .bullet span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    width: max-content;
+}
+
+.form-outer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-outer form {
+    display: flex;
+    width: 600%;
+}
+
+.form-outer form .page {
+    width: calc(100% / 6);
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #4070f4;
+}
+
+.btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btns button {
+    padding: 12px 25px;
+    background: #4070f4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btns button:hover {
+    background: #2d5cf7;
+}
+
+.btns .prev {
+    background: #666;
+}
+
+.btns .prev:hover {
+    background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .progress-bar .step {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+    
+    .btns {
+        flex-direction: column;
+    }
+    
+    .btns button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,948 @@
+:root {
+    --primary-color: #4070f4;
+    --secondary-color: #6691ff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --background-color: #f8f9fa;
+    --error-color: #dc3545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Project Headers */
+.project-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    color: #0066ff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-header p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Progress Steps */
+.progress-container {
+    margin: 3rem 0;
+    padding: 0 40px;
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 40px 0;
+}
+
+/* Main progress line */
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+}
+
+/* Progress indicator between steps */
+.step::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 25px);
+    width: calc(100% - 50px);
+    height: 2px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+}
+
+.step.completed::after {
+    background: #4CAF50;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/* Step circles with icons */
+.step-circle {
+    width: 40px; /* Reduced size */
+    height: 40px; /* Reduced size */
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.step-circle i {
+    font-size: 1.1rem;
+}
+
+.step.completed .step-circle {
+    background: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+
+.step.active .step-circle {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+/* Reset base spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Compact form layout with reduced gutter */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Larger form controls */
+input, select, textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    height: 2.5rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+textarea {
+    height: 5rem;
+    resize: vertical;
+}
+
+/* Larger step icons */
+.step-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    font-size: 1.2rem;
+}
+
+.step-circle i {
+    font-size: 1.3rem;
+}
+
+/* Center align step headers */
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Table button positioning */
+.table-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-responsive {
+    order: 1;
+    margin-bottom: 1rem;
+}
+
+.add-btn {
+    order: 2;
+    align-self: flex-start;
+    margin-top: 0.75rem;
+}
+
+/* Center align next button text */
+.btn-next, .btn-prev, .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 2.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form group adjustments */
+.form-group {
+    margin-bottom: 0.75rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Table styles adjustments */
+table {
+    margin-bottom: 1rem;
+}
+
+th, td {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Subsection headers */
+.subsection h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+/* Compact form controls */
+label {
+    display: block;
+    margin-bottom: 0.125rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    height: 2rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+textarea {
+    height: 4rem;
+    resize: vertical;
+}
+
+/* Compact section spacing */
+.form-section {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.subsection {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Compact table styles */
+.table-responsive {
+    margin: 0.5rem 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+/* Compact buttons */
+.btn-prev, .btn-next, .btn-submit, .add-btn {
+    padding: 0.25rem 0.75rem;
+    height: 2rem;
+    font-size: 0.875rem;
+}
+
+/* Compact navigation */
+.form-navigation {
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+}
+
+/* Compact headers */
+h2, h3, h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+/* Remove excess whitespace */
+.form-section > *:last-child {
+    margin-bottom: 0;
+}
+
+.form-group > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Compact table inputs */
+table input {
+    margin: 0;
+    padding: 0.125rem 0.25rem;
+    height: 1.75rem;
+}
+
+/* Compact delete button */
+.delete-row {
+    padding: 0.125rem 0.5rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+}
+
+.subsection {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+}
+
+table td, table th {
+    padding: 0.5rem;
+}
+
+.step-text {
+    margin-top: 0.25rem;
+}
+
+/* Form controls - reduced size */
+input, select, textarea {
+    padding: 0.5rem 0.75rem; /* Reduced padding */
+    font-size: 0.9rem; /* Smaller font */
+    border-radius: 4px;
+}
+
+/* Table styles - reduced spacing */
+table td, table th {
+    padding: 0.5rem 0.75rem; /* Reduced padding */
+}
+
+/* Section spacing */
+.subsection {
+    margin-bottom: 2rem; /* Space between sections */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.subsection:last-child {
+    border-bottom: none;
+}
+
+/* Table row spacing */
+tr {
+    line-height: 1.4; /* Reduced line height */
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 1rem; /* Reduced margin */
+}
+
+/* Input group spacing */
+.input-group {
+    margin-bottom: 0.75rem; /* Reduced margin */
+}
+
+.step-text {
+    position: absolute;
+    top: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+    width: max-content;
+    text-align: center;
+}
+
+/* Form Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Layout - Core Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 0 !important;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Form Controls */
+label {
+    display: block;
+    margin-bottom: 0.125rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.375rem 0.5rem;
+    height: 2.25rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+textarea {
+    height: 4rem;
+    resize: vertical;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(64, 112, 244, 0.1);
+}
+
+/* Section Spacing */
+.form-section {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subsection {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Table Styles */
+.table-responsive {
+    margin: 0.5rem 0;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 0.5rem;
+}
+
+th, td {
+    padding: 0.375rem 0.5rem;
+    border: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+/* Input Styles */
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4070f4;
+    box-shadow: 0 0 0 3px rgba(64, 112, 244, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-header h1 {
+        font-size: 2rem;
+    }
+    
+    .progress-steps {
+        padding: 0 20px;
+    }
+}
+
+.delete-row {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-row:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.step-text {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Form Sections */
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add these styles to your existing CSS */
+    /* Add or update these styles */
+    .form-section {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .form-section.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .step {
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Add styles for disabled steps */
+    .step:not(.active):not(.completed)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.6);
+        cursor: not-allowed;
+    }
+    
+    /* Style for upcoming steps */
+    .step:not(.active):not(.completed) .step-circle {
+        background: #f5f5f5;
+        color: #999;
+    }
+    transition: all 0.3s ease;
+    
+    .step.completed .step-circle {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+    }
+    
+    .step.active .step-circle {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+    
+    .error {
+        border-color: var(--error-color) !important;
+    }
+    
+    .error:focus {
+        box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.income-expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.income-expense-table th,
+.income-expense-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.income-expense-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.section-header td {
+    background-color: #e9ecef;
+    font-weight: 600;
+}
+
+.total-row td {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.income-expense-table input[type="number"],
+.income-expense-table input[type="text"] {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.income-expense-table .inline-input {
+    width: 150px;
+    margin-left: 8px;
+    display: inline-block;
+}
+
+.income-expense-table input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.delete-row:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.step-text {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Form Sections */
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add these styles to your existing CSS */
+    /* Add or update these styles */
+    .form-section {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .form-section.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .step {
+        cursor: pointer;
+        position: relative;
+    }
+    
+    /* Add styles for disabled steps */
+    .step:not(.active):not(.completed)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.6);
+        cursor: not-allowed;
+    }
+    
+    /* Style for upcoming steps */
+    .step:not(.active):not(.completed) .step-circle {
+        background: #f5f5f5;
+        color: #999;
+    }
+    transition: all 0.3s ease;
+    
+    .step.completed .step-circle {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+    }
+    
+    .step.active .step-circle {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+    
+    .error {
+        border-color: var(--error-color) !important;
+    }
+    
+    .error:focus {
+        box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--background-color);
+    font-weight: 600;
+}
+
+/* Buttons */
+.add-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn-prev, .btn-next, .btn-submit {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-prev {
+    background: var(--border-color);
+}
+
+.btn-prev:hover, .btn-next:hover, .btn-submit:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-prev:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-steps {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .step {
+        flex: 0 0 calc(33.333% - 1rem);
+    }
+}
+
+/* Amount Group Styling */
+.amount-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.amount-group input {
+    width: 100%;
+}
+
+/* Table Button Positioning */
+.table-container {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.add-btn {
+    margin-top: 1rem;
+}
+
+/* Step Validation Colors */
+.step-circle.invalid {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.step-circle.valid {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.step.completed .step-circle.valid {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Form Section Headers */
+.subsection h4 {
+    color: #333;
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+}
+
+/* Two Column Layout */
+.wellbeing-form,
+.income-expense-form,
+.assets-liability-form {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}

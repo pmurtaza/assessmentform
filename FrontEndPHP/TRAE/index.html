@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application and Assessment Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <form id="applicationForm">
+            <!-- Progress bar -->
+            <div class="progress-bar">
+                <div class="step">
+                    <p>1</p>
+                    <div class="bullet">
+                        <span>Applicant's Details</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>2</p>
+                    <div class="bullet">
+                        <span>Family Detail</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>3</p>
+                    <div class="bullet">
+                        <span>Counsellor's Assessment</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>4</p>
+                    <div class="bullet">
+                        <span>Economic Upliftment</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>5</p>
+                    <div class="bullet">
+                        <span>Outcome</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>6</p>
+                    <div class="bullet">
+                        <span>Attachments</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form pages -->
+            <div class="form-outer">
+                <!-- Step 1: Applicant's Details -->
+                <div class="page slide-page">
+                    <div class="title">Applicant's Details</div>
+                    <div class="field">
+                        <label>Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="field">
+                        <label>ITS</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" required>
+                    </div>
+                    <div class="field">
+                        <label>Contact Number</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="field">
+                        <label>Email ID</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="field">
+                        <label>Full Residential Address</label>
+                        <textarea required></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Present Occupation and Address of Place of Work</label>
+                        <textarea required></textarea>
+                    </div>
+                    <div class="field btns">
+                        <button class="next-1 next">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Family Detail -->
+                <div class="page">
+                    <div class="title">Family Details</div>
+                    <div class="family-members">
+                        <table id="familyMembersTable">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Name of Family Member</th>
+                                    <th>Age & Relation</th>
+                                    <th>Education/Occupation</th>
+                                    <th>Annual Income</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be added dynamically -->
+                            </tbody>
+                        </table>
+                        <button type="button" id="addFamilyMember">Add Family Member</button>
+                    </div>
+                    <div class="field btns">
+                        <button class="prev-1 prev">Previous</button>
+                        <button class="next-2 next">Next</button>
+                    </div>
+                </div>
+
+                <!-- Remaining steps will follow similar structure -->
+                <!-- Add remaining form steps here -->
+
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

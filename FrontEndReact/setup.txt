@@ -1,0 +1,27 @@
+# Change into the frontend folder
+cd frontend
+
+# Create a new React app in this folder
+npx create-react-app .
+# or using Yarn
+yarn create react-app .
+
+# Install additional dependencies
+npm install formik yup axios tailwindcss postcss autoprefixer --save
+# or with Yarn
+yarn add formik yup axios tailwindcss postcss autoprefixer
+
+# Initialize Tailwind CSS
+npx tailwindcss init -p
+
+
+# Install Tailwind CSS and PostCSS tools as dev dependencies
+npm install -D tailwindcss postcss autoprefixer
+# or with Yarn
+yarn add -D tailwindcss postcss autoprefixer
+
+# Initialize Tailwind CSS configuration
+npx tailwindcss init -p
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss@latest init -p
