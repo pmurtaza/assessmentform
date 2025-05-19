@@ -318,23 +318,563 @@ session_start();
                     </div>
                 </section>
 
-                <!-- Remaining sections -->
-                <div class="form-navigation">
-                    <button type="button" class="btn-prev" disabled>Previous</button>
-                    <button type="button" class="btn-next">Next</button>
-                    <button type="submit" class="btn-submit" style="display: none;">Submit</button>
-                </div>
-            </div>
-        </form>
-    </div>
-    <script src="assets/js/script.js"></script>
-    <script>
-        // Auto refresh every 30 seconds (only in development)
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            setInterval(function() {
-                window.location.reload();
-            }, 30000); // 30 seconds
-        }
-    </script>
-</body>
-</html>
+                <!-- Assessment & Counseling Section -->
+                <section class="form-section" id="section3">
+                    <h2>Assessment & Counseling</h2>
+                    
+                    <!-- 3.1 Applicant's Background -->
+                    <div class="subsection">
+                        <h3>3.1. Applicant's Background:</h3>
+                        <table class="assessment-table">
+                            <tr>
+                                <td class="label-cell" width="40%">
+                                    Please mention in detail applicant's education, skillsets, past business and/or service experience, current business and any other relevant information
+                                </td>
+                                <td>
+                                    <textarea name="applicant_background" required></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- 3.2 Applicant's Present Business -->
+                    <div class="subsection">
+                        <h3>3.2. Applicant's Present Business:</h3>
+                        <table class="assessment-table">
+                            <tr>
+                                <td class="label-cell" width="40%">
+                                    Mention in detail present business condition, from where goods are purchased, credit period / cash, products / service, cash/credit, typical customers, location, competitions, total monthly or annual revenue, stocks held, income
+                                </td>
+                                <td>
+                                    <textarea name="present_business" required></textarea>
+                                    <div class="note">Also mention family business in brief</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- 3.3 Counsellor's Assessment and recommendations -->
+                    <div class="subsection">
+                        <h3>3.3. Counsellor's Assessment and recommendations:</h3>
+                        <table class="assessment-table">
+                            <tr>
+                                <td class="label-cell" width="40%">
+                                    What is Counsellor's assessment of applicant's profile.<br>
+                                    Any specific positive/negative points, strength /weakness etc.
+                                </td>
+                                <td>
+                                    <ul style="margin:0; padding-left:1.2em;">
+                                        <li><input type="text" name="counsellor_assessment[]" style="width:95%;" required></li>
+                                        <li><input type="text" name="counsellor_assessment[]" style="width:95%;" required></li>
+                                        <li><input type="text" name="counsellor_assessment[]" style="width:95%;" required></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell" width="40%">
+                                    What are Counselor's recommendation for business opportunities available to the applicant to increase income 3 to 5 times in the <i>mauze?</i>
+                                </td>
+                                <td>
+                                    <textarea name="counsellor_recommendation" required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label-cell" width="40%">
+                                    Who are likely customer and competitors in proposed business?<br>
+                                    How the applicant will increase number of customers and compete with competitors?
+                                </td>
+                                <td>
+                                    <textarea name="customer_competitor_strategy" required></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Economic Upliftment Plan Section -->
+                <section class="form-section" id="section4">
+                    <h2>Economic Upliftment Plan</h2>
+                    
+                    <!-- 4.1 Action Plan -->
+                    <div class="subsection">
+                        <h3>4.1. Action Plan</h3>
+                        <div class="note-box">
+                            <p>How the applicant can take advantage of available opportunity in phased manner?</p>
+                            <p>What action plan is proposed over next 3 to 5 year to increase income 3 to 5 times by taking advantage of above-mentioned business opportunity?</p>
+                        </div>
+                        <table class="action-plan-table">
+                            <thead>
+                                <tr>
+                                    <th width="25%">Time-line</th>
+                                    <th width="75%">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">upto 1<sup>st</sup> year end</td>
+                                    <td>1. <textarea name="action_plan[year1][1]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>2. <textarea name="action_plan[year1][2]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>3. <textarea name="action_plan[year1][3]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>4. <textarea name="action_plan[year1][4]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>5. <textarea name="action_plan[year1][5]" rows="2"></textarea></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td rowspan="3">2<sup>nd</sup> and 3<sup>rd</sup> year</td>
+                                    <td>6. <textarea name="action_plan[year2_3][1]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>7. <textarea name="action_plan[year2_3][2]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>8. <textarea name="action_plan[year2_3][3]" rows="2"></textarea></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td rowspan="3">4<sup>th</sup> and 5<sup>th</sup> year</td>
+                                    <td>9. <textarea name="action_plan[year4_5][1]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>10. <textarea name="action_plan[year4_5][2]" rows="2"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>11. <textarea name="action_plan[year4_5][3]" rows="2"></textarea></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 4.2 Financial and non-financial assistance required -->
+                    <div class="subsection">
+                        <h3>4.2. Financial and non-financial assistance required</h3>
+                        <div class="info-text" style="background: #d6f5d6; padding: 10px; margin-bottom: 15px;">
+                            <p>What financials assistance may be needed to implement the upliftment plan?</p>
+                            <p><em>Applicant may require investment in machinery, stock, raw material, furniture, shop (rent), packaging, promotion and marketing, business registration, etc. Wherever applicable, provide support documents for financial assistance such as quotation, photographs, descriptions etc. in installments.</em></p>
+                        </div>
+                        <table class="financial-assistance-table">
+                            <thead>
+                                <tr>
+                                    <th>Time line (Tentative)</th>
+                                    <th>Purpose (end-use) & Cost</th>
+                                    <th>Enayat</th>
+                                    <th>Qardan & Months**</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5" style="background: #fff3cd;">Immediate</td>
+                                    <td><input type="text" name="financial_assistance[immediate][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[immediate][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[immediate][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="financial_assistance[immediate][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[immediate][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[immediate][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="financial_assistance[immediate][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[immediate][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[immediate][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="financial_assistance[immediate][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[immediate][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[immediate][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="financial_assistance[immediate][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[immediate][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[immediate][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">after 1<sup>st</sup> yr</td>
+                                    <td><input type="text" name="financial_assistance[after_1yr][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[after_1yr][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[after_1yr][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">after 2<sup>nd</sup> yr</td>
+                                    <td><input type="text" name="financial_assistance[after_2yr][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[after_2yr][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[after_2yr][qardan][]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">after 3<sup>rd</sup> yr #</td>
+                                    <td><input type="text" name="financial_assistance[after_3yr][purpose][]"></td>
+                                    <td><input type="number" name="financial_assistance[after_3yr][enayat][]"></td>
+                                    <td><input type="text" name="financial_assistance[after_3yr][qardan][]"></td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="2" style="text-align: center;">TOTAL</td>
+                                    <td><input type="number" name="total_enayat" readonly></td>
+                                    <td><input type="number" name="total_qardan" readonly></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note"># After 3<sup>rd</sup> year or before local Qardan can be extended to support business needs or avoid capital reduction due to ongoing Qardan repayment</p>
+
+                        <!-- Repayment Schedule -->
+                        <table class="repayment-table">
+                            <thead>
+                                <tr>
+                                    <th>Repayment</th>
+                                    <th>Year 1</th>
+                                    <th>Year 2</th>
+                                    <th>Year 3</th>
+                                    <th>Year 4</th>
+                                    <th>Year 5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="background: #fff3cd;">QH 1</td>
+                                    <td><input type="number" name="repayment[qh1][year1]"></td>
+                                    <td><input type="number" name="repayment[qh1][year2]"></td>
+                                    <td><input type="number" name="repayment[qh1][year3]"></td>
+                                    <td><input type="number" name="repayment[qh1][year4]"></td>
+                                    <td><input type="number" name="repayment[qh1][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">QH 2</td>
+                                    <td>NA</td>
+                                    <td><input type="number" name="repayment[qh2][year2]"></td>
+                                    <td><input type="number" name="repayment[qh2][year3]"></td>
+                                    <td><input type="number" name="repayment[qh2][year4]"></td>
+                                    <td><input type="number" name="repayment[qh2][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">QH 3</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td><input type="number" name="repayment[qh3][year3]"></td>
+                                    <td><input type="number" name="repayment[qh3][year4]"></td>
+                                    <td><input type="number" name="repayment[qh3][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: #fff3cd;">Local QH</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td><input type="number" name="repayment[local_qh][year4]"></td>
+                                    <td><input type="number" name="repayment[local_qh][year5]"></td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td style="background: #fff3cd;">TOTAL</td>
+                                    <td><input type="number" name="repayment_total[year1]" readonly></td>
+                                    <td><input type="number" name="repayment_total[year2]" readonly></td>
+                                    <td><input type="number" name="repayment_total[year3]" readonly></td>
+                                    <td><input type="number" name="repayment_total[year4]" readonly></td>
+                                    <td><input type="number" name="repayment_total[year5]" readonly></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note">** Repayment can be staggered. Need NOT be equal amount during all years.</p>
+
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label>Rahan available (if any):</label>
+                            <input type="text" name="rahan_available">
+                        </div>
+                        <div class="form-group">
+                            <label>Self-funding:</label>
+                            <input type="text" name="self_funding">
+                        </div>
+
+                        <h4>What non-financial help may be needed for economic upliftment?</h4>
+                        <table class="non-financial-table">
+                            <tr>
+                                <td style="background: #fff3cd;">Mentoring</td>
+                                <td><input type="text" name="non_financial[mentoring]"></td>
+                            </tr>
+                            <tr>
+                                <td style="background: #fff3cd;">Skill Development</td>
+                                <td>Book Keeping, <input type="text" name="non_financial[skill_development]"></td>
+                            </tr>
+                            <tr>
+                                <td style="background: #fff3cd;">Sourcing Support</td>
+                                <td><input type="text" name="non_financial[sourcing]"></td>
+                            </tr>
+                            <tr>
+                                <td style="background: #fff3cd;">Sales/Market Access</td>
+                                <td><input type="text" name="non_financial[sales_market]"></td>
+                            </tr>
+                            <tr>
+                                <td style="background: #fff3cd;">Other</td>
+                                <td><input type="text" name="non_financial[other]"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- 4.3 Targeted Economic Outcome -->
+                    <div class="subsection">
+                        <h3>4.3. Targeted Economic Outcome</h3>
+                        <table class="economic-outcome-table">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Category and Subcategory</th>
+                                    <th>Last Year (actual)</th>
+                                    <th>Year 1 (proj)</th>
+                                    <th>Year 2 (proj)</th>
+                                    <th>Year 3 (proj)</th>
+                                    <th>Year 4 (proj)</th>
+                                    <th>Year 5 (proj)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>REVENUE (Turnover / Sales) (1)</td>
+                                    <td><input type="number" name="revenue[last_year]"></td>
+                                    <td><input type="number" name="revenue[year1]"></td>
+                                    <td><input type="number" name="revenue[year2]"></td>
+                                    <td><input type="number" name="revenue[year3]"></td>
+                                    <td><input type="number" name="revenue[year4]"></td>
+                                    <td><input type="number" name="revenue[year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td colspan="7">EXPENSES</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>a) Raw material / stock</td>
+                                    <td><input type="number" name="expenses[raw_material][last_year]"></td>
+                                    <td><input type="number" name="expenses[raw_material][year1]"></td>
+                                    <td><input type="number" name="expenses[raw_material][year2]"></td>
+                                    <td><input type="number" name="expenses[raw_material][year3]"></td>
+                                    <td><input type="number" name="expenses[raw_material][year4]"></td>
+                                    <td><input type="number" name="expenses[raw_material][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>b) Labor / salary</td>
+                                    <td><input type="number" name="expenses[labor][last_year]"></td>
+                                    <td><input type="number" name="expenses[labor][year1]"></td>
+                                    <td><input type="number" name="expenses[labor][year2]"></td>
+                                    <td><input type="number" name="expenses[labor][year3]"></td>
+                                    <td><input type="number" name="expenses[labor][year4]"></td>
+                                    <td><input type="number" name="expenses[labor][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>c) Rent</td>
+                                    <td><input type="number" name="expenses[rent][last_year]"></td>
+                                    <td><input type="number" name="expenses[rent][year1]"></td>
+                                    <td><input type="number" name="expenses[rent][year2]"></td>
+                                    <td><input type="number" name="expenses[rent][year3]"></td>
+                                    <td><input type="number" name="expenses[rent][year4]"></td>
+                                    <td><input type="number" name="expenses[rent][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>d) Overhead & Misc (electricity, petrol, etc. & unforeseen)</td>
+                                    <td><input type="number" name="expenses[overhead][last_year]"></td>
+                                    <td><input type="number" name="expenses[overhead][year1]"></td>
+                                    <td><input type="number" name="expenses[overhead][year2]"></td>
+                                    <td><input type="number" name="expenses[overhead][year3]"></td>
+                                    <td><input type="number" name="expenses[overhead][year4]"></td>
+                                    <td><input type="number" name="expenses[overhead][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>e) Repair & Maintenance</td>
+                                    <td><input type="number" name="expenses[repair][last_year]"></td>
+                                    <td><input type="number" name="expenses[repair][year1]"></td>
+                                    <td><input type="number" name="expenses[repair][year2]"></td>
+                                    <td><input type="number" name="expenses[repair][year3]"></td>
+                                    <td><input type="number" name="expenses[repair][year4]"></td>
+                                    <td><input type="number" name="expenses[repair][year5]"></td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td></td>
+                                    <td>Total Expenses (2)</td>
+                                    <td><input type="number" name="expenses_total[last_year]" readonly></td>
+                                    <td><input type="number" name="expenses_total[year1]" readonly></td>
+                                    <td><input type="number" name="expenses_total[year2]" readonly></td>
+                                    <td><input type="number" name="expenses_total[year3]" readonly></td>
+                                    <td><input type="number" name="expenses_total[year4]" readonly></td>
+                                    <td><input type="number" name="expenses_total[year5]" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>PROFIT [(1)- (2)]</td>
+                                    <td><input type="number" name="profit[last_year]" readonly></td>
+                                    <td><input type="number" name="profit[year1]" readonly></td>
+                                    <td><input type="number" name="profit[year2]" readonly></td>
+                                    <td><input type="number" name="profit[year3]" readonly></td>
+                                    <td><input type="number" name="profit[year4]" readonly></td>
+                                    <td><input type="number" name="profit[year5]" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(-) Fund blocked in Credit / Dead stock</td>
+                                    <td><input type="number" name="fund_blocked[last_year]"></td>
+                                    <td><input type="number" name="fund_blocked[year1]"></td>
+                                    <td><input type="number" name="fund_blocked[year2]"></td>
+                                    <td><input type="number" name="fund_blocked[year3]"></td>
+                                    <td><input type="number" name="fund_blocked[year4]"></td>
+                                    <td><input type="number" name="fund_blocked[year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(-) Qardan Repayment</td>
+                                    <td><input type="number" name="qardan_repayment[last_year]"></td>
+                                    <td><input type="number" name="qardan_repayment[year1]"></td>
+                                    <td><input type="number" name="qardan_repayment[year2]"></td>
+                                    <td><input type="number" name="qardan_repayment[year3]"></td>
+                                    <td><input type="number" name="qardan_repayment[year4]"></td>
+                                    <td><input type="number" name="qardan_repayment[year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(-) House hold expense</td>
+                                    <td><input type="number" name="household_expense[last_year]"></td>
+                                    <td><input type="number" name="household_expense[year1]"></td>
+                                    <td><input type="number" name="household_expense[year2]"></td>
+                                    <td><input type="number" name="household_expense[year3]"></td>
+                                    <td><input type="number" name="household_expense[year4]"></td>
+                                    <td><input type="number" name="household_expense[year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>CASH SURPLUS **</td>
+                                    <td><input type="number" name="cash_surplus[last_year]" readonly></td>
+                                    <td><input type="number" name="cash_surplus[year1]" readonly></td>
+                                    <td><input type="number" name="cash_surplus[year2]" readonly></td>
+                                    <td><input type="number" name="cash_surplus[year3]" readonly></td>
+                                    <td><input type="number" name="cash_surplus[year4]" readonly></td>
+                                    <td><input type="number" name="cash_surplus[year5]" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>(+) Additional Qardan / Enayat at the end of year</td>
+                                    <td><input type="number" name="additional_qardan[last_year]"></td>
+                                    <td><input type="number" name="additional_qardan[year1]"></td>
+                                    <td><input type="number" name="additional_qardan[year2]"></td>
+                                    <td><input type="number" name="additional_qardan[year3]"></td>
+                                    <td><input type="number" name="additional_qardan[year4]"></td>
+                                    <td><input type="number" name="additional_qardan[year5]"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="note">** If there is deficit in initial years, provision for additional Qardan may be kept at the end of the year to fill the deficit. Also, the applicant will be eligible to take additional local qardan if his business grows and exiting qardan is insufficient for available growth opportunity.</p>
+
+                        <!-- Business Assets Table -->
+                        <table class="business-assets-table">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Sr No</th>
+                                    <th rowspan="2">Business assets<br>(at the end of the year)</th>
+                                    <th>Last Year</th>
+                                    <th>Year 1</th>
+                                    <th>Year 2</th>
+                                    <th>Year 3</th>
+                                    <th>Year 4</th>
+                                    <th>Year 5</th>
+                                </tr>
+                                <tr>
+                                    <th>(actual)</th>
+                                    <th>(proj)</th>
+                                    <th>(proj)</th>
+                                    <th>(proj)</th>
+                                    <th>(proj)</th>
+                                    <th>(proj)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5</td>
+                                    <td>a) Cash in Hand</td>
+                                    <td><input type="number" name="business_assets[cash][last_year]"></td>
+                                    <td><input type="number" name="business_assets[cash][year1]"></td>
+                                    <td><input type="number" name="business_assets[cash][year2]"></td>
+                                    <td><input type="number" name="business_assets[cash][year3]"></td>
+                                    <td><input type="number" name="business_assets[cash][year4]"></td>
+                                    <td><input type="number" name="business_assets[cash][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>b) Raw materials / stock</td>
+                                    <td><input type="number" name="business_assets[raw_materials][last_year]"></td>
+                                    <td><input type="number" name="business_assets[raw_materials][year1]"></td>
+                                    <td><input type="number" name="business_assets[raw_materials][year2]"></td>
+                                    <td><input type="number" name="business_assets[raw_materials][year3]"></td>
+                                    <td><input type="number" name="business_assets[raw_materials][year4]"></td>
+                                    <td><input type="number" name="business_assets[raw_materials][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>c) Sale on Credit **</td>
+                                    <td><input type="number" name="business_assets[credit_sale][last_year]"></td>
+                                    <td><input type="number" name="business_assets[credit_sale][year1]"></td>
+                                    <td><input type="number" name="business_assets[credit_sale][year2]"></td>
+                                    <td><input type="number" name="business_assets[credit_sale][year3]"></td>
+                                    <td><input type="number" name="business_assets[credit_sale][year4]"></td>
+                                    <td><input type="number" name="business_assets[credit_sale][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>d) Machines / Vehicles</td>
+                                    <td><input type="number" name="business_assets[machines][last_year]"></td>
+                                    <td><input type="number" name="business_assets[machines][year1]"></td>
+                                    <td><input type="number" name="business_assets[machines][year2]"></td>
+                                    <td><input type="number" name="business_assets[machines][year3]"></td>
+                                    <td><input type="number" name="business_assets[machines][year4]"></td>
+                                    <td><input type="number" name="business_assets[machines][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>e) Furniture / Storage</td>
+                                    <td><input type="number" name="business_assets[furniture][last_year]"></td>
+                                    <td><input type="number" name="business_assets[furniture][year1]"></td>
+                                    <td><input type="number" name="business_assets[furniture][year2]"></td>
+                                    <td><input type="number" name="business_assets[furniture][year3]"></td>
+                                    <td><input type="number" name="business_assets[furniture][year4]"></td>
+                                    <td><input type="number" name="business_assets[furniture][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>f) Shop / Godown etc.</td>
+                                    <td><input type="number" name="business_assets[shop][last_year]"></td>
+                                    <td><input type="number" name="business_assets[shop][year1]"></td>
+                                    <td><input type="number" name="business_assets[shop][year2]"></td>
+                                    <td><input type="number" name="business_assets[shop][year3]"></td>
+                                    <td><input type="number" name="business_assets[shop][year4]"></td>
+                                    <td><input type="number" name="business_assets[shop][year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>g) Branding / Goodwill</td>
+                                    <td colspan="6" style="text-align: center;">The applicant is encouraged to earn goodwill by his behavior.</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Business liability – other than Qardan<br>(at the end of the year)</td>
+                                    <td><input type="number" name="business_liability[last_year]"></td>
+                                    <td><input type="number" name="business_liability[year1]"></td>
+                                    <td><input type="number" name="business_liability[year2]"></td>
+                                    <td><input type="number" name="business_liability[year3]"></td>
+                                    <td><input type="number" name="business_liability[year4]"></td>
+                                    <td><input type="number" name="business_liability[year5]"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>h) Purchase on Credit **</td>
+                                    <td><input type="number" name="credit_purchase[last_year]"></td>
+                                    <td><input type="number" name="credit_purchase[year1]"></td>
+                                    <td><input type="number" name="credit_purchase[year2]"></td>
+                                <!-- Add this before closing the form tag -->
+<div class="form-navigation">
+    <button type="button" class="btn-prev">Previous</button>
+    <button type="button" class="btn-next">Next</button>
+    <button type="submit" class="btn-submit">Submit</button>
+</div>
