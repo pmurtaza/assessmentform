@@ -1,3 +1,4 @@
+/* Reset base styles */
 :root {
     --primary-color: #4070f4;
     --secondary-color: #6691ff;
@@ -26,1395 +27,580 @@ body {
     padding: 0 1rem;
 }
 
-/* Project Headers */
+/* Project Header - Center Alignment */
 .project-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
 .project-header h1 {
-    color: #0066ff;
-    font-size: 2.5rem;
+    color: #4070f4;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .project-header p {
     color: #666;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
-/* Progress Steps */
+/* Section Headers - Center Alignment */
+.form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Declaration Section Enhancement */
+.declaration-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.declaration-section h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.declaration-section ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.declaration-section li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.comments-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.comments-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.comments-section textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.signature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.signature-field {
+    margin-bottom: 1.5rem;
+}
+
+.signature-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.signature-field input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.signature-field input[type="date"] {
+    color: #444;
+    cursor: pointer;
+}
+
+.signature-field input[type="file"] {
+    padding: 0.4rem;
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.signature-field input[type="file"]:hover {
+    border-color: var(--primary-color);
+    background: #f0f4ff;
+}
+
+/* Enhance Step Indicators */
+.step-text {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.step.active .step-text {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Form Controls - Fix Size */
+input, textarea, select {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: border-color 0.3s ease;
+    height: 32px;
+    background-color: #fff;
+}
+
+textarea {
+    height: auto;
+    min-height: 60px;
+    resize: vertical;
+}
+
+/* Progress Steps Navigation */
 .progress-container {
-    margin: 3rem 0;
-    padding: 0 40px;
+    background: white;
+    padding: 1rem 0;
+    margin: 0 0 2rem 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .progress-steps {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: relative;
-    margin: 40px 0;
-}
-
-/* Main progress line */
-.progress-steps::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: #e0e0e0;
-    transform: translateY(-50%);
-}
-
-/* Progress indicator between steps */
-.step::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: calc(50% + 25px);
-    width: calc(100% - 50px);
-    height: 2px;
-    background: #e0e0e0;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease;
-}
-
-.step.completed::after {
-    background: #4CAF50;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;
+    text-align: center;
     position: relative;
-    z-index: 1;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    padding: 0 10px;
 }
 
-.step:hover {
-    transform: scale(1.05);
+/* Add line between steps */
+.step::after {
+    content: '';
+    position: absolute;
+    top: 14px; /* Half of step-circle height */
+    left: calc(50% + 14px); /* Half of step-circle width + full width */
+    width: calc(100% - 28px);
+    height: 2px;
+    background: #e0e0e0;
 }
 
-/* Step circles with icons */
+.step:last-child::after {
+    display: none;
+}
+
+.step.completed::after {
+    background: var(--primary-color);
+}
+
+/* Form Sections Visibility */
+.form-section {
+    display: none;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.form-section.active {
+    display: block;
+}
+
+/* Navigation Buttons */
+.form-navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 20px;
+    background: white;
+    border-top: 1px solid #eee;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+/* Step Indicators */
 .step-circle {
-    width: 40px; /* Reduced size */
-    height: 40px; /* Reduced size */
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: white;
     border: 2px solid #e0e0e0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
-    color: #666;
-    transition: all 0.3s ease;
+    margin: 0 auto 8px;
     position: relative;
-}
-
-.step-circle i {
-    font-size: 1.1rem;
+    z-index: 2;
 }
 
 .step.completed .step-circle {
-    background: #4CAF50;
-    border-color: #4CAF50;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.step.completed .step-circle i {
     color: white;
 }
 
 .step.active .step-circle {
-    border-color: #4CAF50;
-    color: #4CAF50;
+    border-color: var(--primary-color);
 }
 
-/* Reset base spacing */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.step.active .step-circle i {
+    color: var(--primary-color);
 }
 
-/* Compact form layout with reduced gutter */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-/* Larger form controls */
-input, select, textarea {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    height: 2.5rem;
-    font-size: 0.95rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-textarea {
-    height: 5rem;
-    resize: vertical;
-}
-
-/* Larger step icons */
-.step-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid #e0e0e0;
-    font-size: 1.2rem;
-}
-
-.step-circle i {
-    font-size: 1.3rem;
-}
-
-/* Center align step headers */
-.form-section h2,
-.subsection h3,
-.subsection h4 {
-    text-align: left;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-/* Table button positioning */
-.table-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.table-responsive {
-    order: 1;
-    margin-bottom: 1rem;
-}
-
-.add-btn {
-    order: 2;
-    align-self: flex-start;
-    margin-top: 0.75rem;
-}
-
-/* Center align next button text */
-.btn-next, .btn-prev, .btn-submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    height: 2.5rem;
-    font-size: 0.95rem;
-}
-
-/* Form group adjustments */
-.form-group {
-    margin-bottom: 0.75rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* Table styles adjustments */
-table {
-    margin-bottom: 1rem;
-}
-
-th, td {
-    padding: 0.5rem 0.75rem;
-}
-
-/* Subsection headers */
-.subsection h3 {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-.form-group {
-    margin-bottom: 0.5rem;
-}
-
-/* Compact form controls */
-label {
-    display: block;
-    margin-bottom: 0.125rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.25rem 0.5rem;
-    height: 2rem;
-    font-size: 0.875rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-textarea {
-    height: 4rem;
-    resize: vertical;
-}
-
-/* Compact section spacing */
-.form-section {
-    padding: 0.75rem;
-    margin-bottom: 0.5rem;
-}
-
-.subsection {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-}
-
-/* Compact table styles */
-.table-responsive {
-    margin: 0.5rem 0;
-}
-
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--border-color);
-    font-size: 0.875rem;
-}
-
-/* Compact buttons */
-.btn-prev, .btn-next, .btn-submit, .add-btn {
-    padding: 0.25rem 0.75rem;
-    height: 2rem;
-    font-size: 0.875rem;
-}
-
-/* Compact navigation */
-.form-navigation {
-    margin-top: 0.75rem;
-    gap: 0.5rem;
-}
-
-/* Compact headers */
-h2, h3, h4 {
-    margin-bottom: 0.5rem;
-    font-size: 1.125rem;
-}
-
-/* Remove excess whitespace */
-.form-section > *:last-child {
-    margin-bottom: 0;
-}
-
-.form-group > *:last-child {
-    margin-bottom: 0;
-}
-
-/* Compact table inputs */
-table input {
-    margin: 0;
-    padding: 0.125rem 0.25rem;
-    height: 1.75rem;
-}
-
-/* Compact delete button */
-.delete-row {
-    padding: 0.125rem 0.5rem;
-    height: 1.75rem;
+.step-text {
     font-size: 0.75rem;
-}
-
-.subsection {
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-}
-
-table td, table th {
-    padding: 0.5rem;
-}
-
-.step-text {
-    margin-top: 0.25rem;
-}
-
-/* Form controls - reduced size */
-input, select, textarea {
-    padding: 0.5rem 0.75rem; /* Reduced padding */
-    font-size: 0.9rem; /* Smaller font */
-    border-radius: 4px;
-}
-
-/* Table styles - reduced spacing */
-table td, table th {
-    padding: 0.5rem 0.75rem; /* Reduced padding */
-}
-
-/* Section spacing */
-.subsection {
-    margin-bottom: 2rem; /* Space between sections */
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.subsection:last-child {
-    border-bottom: none;
-}
-
-/* Table row spacing */
-tr {
-    line-height: 1.4; /* Reduced line height */
-}
-
-/* Form group spacing */
-.form-group {
-    margin-bottom: 1rem; /* Reduced margin */
-}
-
-/* Input group spacing */
-.input-group {
-    margin-bottom: 0.75rem; /* Reduced margin */
-}
-
-.step-text {
-    position: absolute;
-    top: 100%;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
     color: #666;
-    font-weight: 500;
-    width: max-content;
-    text-align: center;
+    margin-top: 4px;
 }
 
-/* Form Layout */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.form-group {
-    margin-bottom: 0.5rem;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Form Layout - Core Styles */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.form-group {
-    margin-bottom: 0 !important;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-/* Form Controls */
-label {
-    display: block;
-    margin-bottom: 0.125rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.375rem 0.5rem;
-    height: 2.25rem;
-    font-size: 0.9rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #fff;
-    transition: border-color 0.3s ease;
-}
-
-textarea {
-    height: 4rem;
-    resize: vertical;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(64, 112, 244, 0.1);
-}
-
-/* Section Spacing */
-.form-section {
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.subsection {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-}
-
-/* Table Styles */
-.table-responsive {
-    margin: 0.5rem 0;
-}
-
-table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-    margin-bottom: 0.5rem;
-}
-
-th, td {
-    padding: 0.375rem 0.5rem;
-    border: 1px solid var(--border-color);
-    font-size: 0.875rem;
-}
-
-/* Input Styles */
-input, select, textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #4070f4;
-    box-shadow: 0 0 0 3px rgba(64, 112, 244, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-header h1 {
-        font-size: 2rem;
-    }
-    
-    .progress-steps {
-        padding: 0 20px;
-    }
-}
-
-.delete-row {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.delete-row:hover {
-    background: #c82333;
-    transform: scale(1.05);
-}
-
-.step-text {
-    font-size: 0.875rem;
-    color: var(--text-color);
-    margin-top: 0.5rem;
+.step.active .step-text {
+    color: var(--primary-color);
     font-weight: 500;
 }
 
-/* Form Sections */
-.form-section {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
+/* Add necessary spacing for fixed navigation */
+body {
+    padding-bottom: 60px;
+    min-height: 100vh;
 }
 
-.form-section.active {
-    display: block;
+/* Container adjustments */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 60px);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.form-group {
+.form-section h2 {
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    color: #333;
 }
 
-.form-group.full-width {
-    grid-column: 1 / -1;
+/* Form Navigation */
+.form-navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 20px;
+    background: white;
+    border-top: 1px solid #eee;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
+.btn-prev,
+.btn-next,
+.btn-submit {
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    min-width: 80px;
+    transition: all 0.3s ease;
+}
+
+.btn-prev {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+.btn-next,
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-prev:hover {
+    background-color: #e9ecef;
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Form Grid Layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* Labels */
 label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: var(--primary-color);
-    outline: none;
+    margin-bottom: 0.3rem;
+    font-size: 0.875rem;
+    color: #444;
 }
 
 /* Table Styles */
 .table-responsive {
     overflow-x: auto;
-    margin-top: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.income-expense-table {
+table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    background: white;
 }
 
-.income-expense-table th,
-.income-expense-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+th, td {
+    padding: 12px 15px;
     text-align: left;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
 }
 
-.income-expense-table th {
+th {
     background-color: #f8f9fa;
     font-weight: 600;
+    color: #333;
+    white-space: nowrap;
 }
 
-.section-header td {
-    background-color: #e9ecef;
-    font-weight: 600;
-}
-
-.total-row td {
+/* Family Members Table */
+#familyMembersTable th {
     background-color: #f8f9fa;
-    font-weight: 600;
 }
 
-.income-expense-table input[type="number"],
-.income-expense-table input[type="text"] {
-    width: 100%;
-    padding: 4px 8px;
-    border: 1px solid #ddd;
+#familyMembersTable td {
+    vertical-align: middle;
+}
+
+#familyMembersTable input {
+    margin: 0;
     border-radius: 4px;
+}
+
+/* Income Expense Table */
+.income-expense-table .section-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.income-expense-table .section-header td {
+    padding: 12px 15px;
+}
+
+.income-expense-table input[type="number"] {
+    text-align: right;
+    padding-right: 8px;
+}
+
+.income-expense-table .total-row {
+    background-color: #f8f9fa;
+    font-weight: 600;
 }
 
 .income-expense-table .inline-input {
-    width: 150px;
-    margin-left: 8px;
+    width: auto;
     display: inline-block;
-}
-
-.income-expense-table input[readonly] {
-    background-color: #e9ecef;
-    cursor: not-allowed;
-}
-
-.delete-row:hover {
-    background: #c82333;
-    transform: scale(1.05);
-}
-
-.step-text {
-    font-size: 0.875rem;
-    color: var(--text-color);
-    margin-top: 0.5rem;
-    font-weight: 500;
-}
-
-/* Form Sections */
-.form-section {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.form-section.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-/* Table Styles */
-.table-responsive {
-    overflow-x: auto;
-    margin-top: 1rem;
+    margin-left: 8px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 2px 4px;
 }
 
 /* Assessment Table Styles */
 .assessment-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 2rem;
-    table-layout: fixed;
+    margin: 1rem 0;
 }
 
 .assessment-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
     vertical-align: top;
 }
 
 .assessment-table .label-cell {
-    background: #d6f5d6;
-    width: 40% !important;
-    font-style: italic;
-}
-
-.assessment-table td:not(.label-cell) {
-    width: 60% !important;
+    background-color: #f8f9fa;
+    font-weight: normal;
+    line-height: 1.5;
+    width: 40%;
+    min-width: 40%;
+    max-width: 40%;
 }
 
 .assessment-table textarea {
     width: 100%;
-    min-height: 80px;
-}
-
-.assessment-table .note {
-    font-size: 0.95em;
-    color: #555;
-    font-style: italic;
-}
-
-/* Economic Upliftment Plan Styles */
-.note-box {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-}
-
-.note-box p {
-    margin: 0.5rem 0;
-    font-style: italic;
-    color: #666;
-}
-
-.action-plan-table,
-.financial-assistance-table,
-.repayment-table,
-.non-financial-table,
-.economic-outcome-table,
-.business-assets-table,
-.business-liability-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
-}
-
-.action-plan-table th,
-.financial-assistance-table th,
-.repayment-table th,
-.non-financial-table th,
-.economic-outcome-table th,
-.business-assets-table th,
-.business-liability-table th {
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-}
-
-/* Subsection Styles */
-.subsection {
-    margin-bottom: 2rem;
-}
-
-.subsection h3 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-.form-group {
-    margin-bottom: 0.5rem;
-}
-
-/* Compact form controls */
-label {
-    display: block;
-    margin-bottom: 0.125rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.25rem 0.5rem;
-    height: 2rem;
-    font-size: 0.875rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-textarea {
-    height: 4rem;
-    resize: vertical;
-}
-
-/* Compact section spacing */
-.form-section {
-    padding: 0.75rem;
-    margin-bottom: 0.5rem;
-}
-
-.subsection {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-}
-
-/* Compact table styles */
-.table-responsive {
-    margin: 0.5rem 0;
-}
-
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--border-color);
-    font-size: 0.875rem;
-}
-
-/* Compact buttons */
-.btn-prev, .btn-next, .btn-submit, .add-btn {
-    padding: 0.25rem 0.75rem;
-    height: 2rem;
-    font-size: 0.875rem;
-}
-
-/* Compact navigation */
-.form-navigation {
-    margin-top: 0.75rem;
-    gap: 0.5rem;
-}
-
-/* Compact headers */
-h2, h3, h4 {
-    margin-bottom: 0.5rem;
-    font-size: 1.125rem;
-}
-
-/* Remove excess whitespace */
-.form-section > *:last-child {
-    margin-bottom: 0;
-}
-
-.form-group > *:last-child {
-    margin-bottom: 0;
-}
-
-/* Compact table inputs */
-table input {
-    margin: 0;
-    padding: 0.125rem 0.25rem;
-    height: 1.75rem;
-}
-
-/* Compact delete button */
-.delete-row {
-    padding: 0.125rem 0.5rem;
-    height: 1.75rem;
-    font-size: 0.75rem;
-}
-
-.subsection {
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-}
-
-table td, table th {
-    padding: 0.5rem;
-}
-
-.step-text {
-    margin-top: 0.25rem;
-}
-
-/* Form controls - reduced size */
-input, select, textarea {
-    padding: 0.5rem 0.75rem; /* Reduced padding */
-    font-size: 0.9rem; /* Smaller font */
-    border-radius: 4px;
-}
-
-/* Table styles - reduced spacing */
-table td, table th {
-    padding: 0.5rem 0.75rem; /* Reduced padding */
-}
-
-/* Section spacing */
-.subsection {
-    margin-bottom: 2rem; /* Space between sections */
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
-
-.subsection:last-child {
-    border-bottom: none;
-}
-
-/* Table row spacing */
-tr {
-    line-height: 1.4; /* Reduced line height */
-}
-
-/* Form group spacing */
-.form-group {
-    margin-bottom: 1rem; /* Reduced margin */
-}
-
-/* Input group spacing */
-.input-group {
-    margin-bottom: 0.75rem; /* Reduced margin */
-}
-
-.step-text {
-    position: absolute;
-    top: 100%;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 500;
-    width: max-content;
-    text-align: center;
-}
-
-/* Form Layout */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.form-group {
-    margin-bottom: 0.5rem;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Form Layout - Core Styles */
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.form-group {
-    margin-bottom: 0 !important;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-/* Form Controls */
-label {
-    display: block;
-    margin-bottom: 0.125rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.375rem 0.5rem;
-    height: 2.25rem;
-    font-size: 0.9rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #fff;
-    transition: border-color 0.3s ease;
-}
-
-textarea {
-    height: 4rem;
-    resize: vertical;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(64, 112, 244, 0.1);
-}
-
-/* Section Spacing */
-.form-section {
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.subsection {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-}
-
-/* Table Styles */
-.table-responsive {
-    margin: 0.5rem 0;
-}
-
-table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-    margin-bottom: 0.5rem;
-}
-
-th, td {
-    padding: 0.375rem 0.5rem;
-    border: 1px solid var(--border-color);
-    font-size: 0.875rem;
-}
-
-/* Input Styles */
-input, select, textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #4070f4;
-    box-shadow: 0 0 0 3px rgba(64, 112, 244, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-header h1 {
-        font-size: 2rem;
-    }
-    
-    .progress-steps {
-        padding: 0 20px;
-    }
-}
-
-.delete-row {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.delete-row:hover {
-    background: #c82333;
-    transform: scale(1.05);
-}
-
-.step-text {
-    font-size: 0.875rem;
-    color: var(--text-color);
-    margin-top: 0.5rem;
-    font-weight: 500;
-}
-
-/* Form Sections */
-.form-section {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.form-section.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group.full-width {
-    grid-column: 1 / -1;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-
-/* Table Styles */
-.table-responsive {
-    overflow-x: auto;
-    margin-top: 1rem;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-th, td {
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    text-align: left;
-}
-
-th {
-    background-color: var(--background-color);
-    font-weight: 600;
-}
-
-/* Action Plan Table Styles */
-.action-plan-table,
-.financial-assistance-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
-}
-
-.action-plan-table th,
-.action-plan-table td,
-.financial-assistance-table th,
-.financial-assistance-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    vertical-align: top;
-}
-
-.action-plan-table th,
-.financial-assistance-table th {
-    background-color: #f8f9fa;
-    font-weight: 600;
-}
-
-.action-plan-table input,
-.financial-assistance-table input {
-    width: 100%;
-    padding: 4px 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.action-plan-table textarea {
-    width: 95%;
-    min-height: 50px;
-    padding: 8px;
-    margin-left: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    resize: vertical;
-}
-
-.action-plan-table td {
+    min-height: 120px;
     padding: 10px;
-    vertical-align: top;
-}
-
-.note-box {
-    background-color: #f8f9fa;
     border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem;
     border-radius: 4px;
+    resize: vertical;
 }
 
-.note-box p {
-    margin: 0.5rem 0;
-    font-style: italic;
-    color: #666;
+/* Family Members Table Container */
+.family-members-section {
+    margin-bottom: 2rem;
 }
 
-/* Buttons */
-.add-btn {
-    background: var(--primary-color);
+.family-members-table-container {
+    margin-bottom: 1rem;
+}
+
+/* Add Family Member Button */
+#addFamilyMember {
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+#addFamilyMember:hover {
+    background-color: var(--secondary-color);
+}
+
+#addFamilyMember i {
+    font-size: 1rem;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
     transition: background-color 0.3s ease;
 }
 
-.form-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding: 15px;
-    border-top: 1px solid #eee;
-    position: sticky;
-    bottom: 0;
-    background: white;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+.delete-btn:hover {
+    background-color: #c82333;
 }
 
-.btn-prev,
-.btn-next,
-.btn-submit {
-    padding: 12px 24px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-    background-color: #4070f4;
-    color: white;
-    font-weight: 500;
-    min-width: 120px;
-    transition: all 0.3s ease;
-}
-
-.btn-prev {
-    display: none;
-}
-
-.btn-submit {
-    display: none;
-}
-
-.btn-prev:hover,
-.btn-next:hover {
-    background-color: #2952b3;
-}
-
-.btn-submit {
-    background-color: #28a745;
-}
-
-.btn-submit:hover {
-    background-color: #218838;
-}
-
-.btn-prev {
-    margin-right: auto;
-}
-
-.btn-next {
-    margin-left: auto;
-}
-
-.btn-submit {
-    margin-left: auto;
-    background-color: #28a745;
-}
-
-.btn-submit:hover {
-    background-color: #218838;
-}
-
-.btn-prev:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .progress-steps {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    
-    .step {
-        flex: 0 0 calc(33.333% - 1rem);
-    }
-}
-
-/* Amount Group Styling */
-.amount-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.amount-group input {
-    width: 100%;
-}
-
-/* Table Button Positioning */
-.table-container {
-    position: relative;
-    margin-bottom: 3rem;
-}
-
-.add-btn {
+/* Family Members Table */
+#familyMembersTable {
     margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
 }
 
-/* Step Validation Colors */
-.step-circle.invalid {
-    border-color: #dc3545;
-    color: #dc3545;
+#familyMembersTable th,
+#familyMembersTable td {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    vertical-align: middle;
 }
 
-.step-circle.valid {
-    border-color: #28a745;
-    color: #28a745;
+#familyMembersTable input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
-.step.completed .step-circle.valid {
-    background-color: #28a745;
-    color: white;
+#familyMembersTable input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(64,112,244,0.1);
 }
 
-/* Form Section Headers */
-.subsection h4 {
-    color: #333;
-    margin: 1.5rem 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #eee;
+/* Zebra Striping for Tables */
+tr:nth-child(even) {
+    background-color: #fafafa;
 }
 
-/* Two Column Layout */
-.wellbeing-form,
-.income-expense-form,
-.assets-liability-form {
-    background: #f8f9fa;
+/* Table Input Styling */
+table input {
+    border: 1px solid #e0e0e0;
+    padding: 6px 10px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+table input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(64,112,244,0.1);
+}
+
+/* Table Cell Spacing */
+td:first-child {
+    width: 50px;
+}
+
+/* Wellbeing Form */
+.wellbeing-form {
+    background: white;
     padding: 1.5rem;
     border-radius: 8px;
-    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.wellbeing-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.wellbeing-form small {
+    color: #666;
+    font-style: italic;
 }

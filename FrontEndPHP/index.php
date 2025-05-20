@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <div class="project-header">
@@ -92,6 +94,9 @@ session_start();
                             <label>Present Occupation and Address of Place of Work</label>
                             <textarea name="occupation" required></textarea>
                         </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-next">Next</button>
                     </div>
                 </section>
 
@@ -316,12 +321,16 @@ session_start();
                             </div>
                         </div>
                     </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">Previous</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
                 </section>
 
                 <!-- Assessment & Counseling Section -->
                 <section class="form-section" id="section3">
                     <h2>Assessment & Counseling</h2>
-                    
+
                     <!-- 3.1 Applicant's Background -->
                     <div class="subsection">
                         <h3>3.1. Applicant's Background:</h3>
@@ -389,12 +398,16 @@ session_start();
                             </tr>
                         </table>
                     </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">Previous</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
                 </section>
 
                 <!-- Economic Upliftment Plan Section -->
                 <section class="form-section" id="section4">
                     <h2>Economic Upliftment Plan</h2>
-                    
+
                     <!-- 4.1 Action Plan -->
                     <div class="subsection">
                         <h3>4.1. Action Plan</h3>
@@ -426,7 +439,7 @@ session_start();
                                 <tr>
                                     <td>5. <textarea name="action_plan[year1][5]" rows="2"></textarea></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td rowspan="3">2<sup>nd</sup> and 3<sup>rd</sup> year</td>
                                     <td>6. <textarea name="action_plan[year2_3][1]" rows="2"></textarea></td>
@@ -437,7 +450,7 @@ session_start();
                                 <tr>
                                     <td>8. <textarea name="action_plan[year2_3][3]" rows="2"></textarea></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td rowspan="3">4<sup>th</sup> and 5<sup>th</sup> year</td>
                                     <td>9. <textarea name="action_plan[year4_5][1]" rows="2"></textarea></td>
@@ -872,9 +885,263 @@ session_start();
                                     <td><input type="number" name="credit_purchase[last_year]"></td>
                                     <td><input type="number" name="credit_purchase[year1]"></td>
                                     <td><input type="number" name="credit_purchase[year2]"></td>
-                                <!-- Add this before closing the form tag -->
-<div class="form-navigation">
-    <button type="button" class="btn-prev">Previous</button>
-    <button type="button" class="btn-next">Next</button>
-    <button type="submit" class="btn-submit">Submit</button>
-</div>
+                                    <td><input type="number" name="credit_purchase[year3]"></td>
+                                    <td><input type="number" name="credit_purchase[year4]"></td>
+                                    <td><input type="number" name="credit_purchase[year5]"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">Previous</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
+                </section>
+            </div>
+                <!-- Declaration Section -->
+                <section class="form-section" id="section5">
+                    <h2>Declaration</h2>
+                    <div class="declaration-section">
+                        <div class="applicant-declaration">
+                            <h3>The applicant hereby confirms that:</h3>
+                            <ol>
+                                <li>The information provided about his personal, family and present business are correct and free of any error</li>
+                                <li>He/she has understood the details filled in this form and purpose and content of Economic Upliftment Plan.</li>
+                                <li>By signing this form he is applying for Enayat and Qardan amount as mentioned in 4.2 above</li>
+                                <li>Any amount granted against this application will be utilized only for economic upliftment purpose as mentioned in this application.</li>
+                            </ol>
+                            
+                            <div class="comments-section">
+                                <label>Any other comments:</label>
+                                <textarea name="applicant_comments" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="signature-grid">
+                                <div class="signature-field">
+                                    <label>Applicant's Name</label>
+                                    <input type="text" name="applicant_name" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Contact No.</label>
+                                    <input type="tel" name="applicant_contact" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Date</label>
+                                    <input type="date" name="applicant_date" required>
+                                </div>
+                            </div>
+                            <div class="signature-field">
+                                <label>Signature</label>
+                                <div class="file-upload-container">
+                                    <input type="file" class="file-upload-input" name="applicant_signature" accept="image/*" required>
+                                    <div class="file-upload-label">
+                                        <i class="fas fa-upload file-upload-icon"></i>
+                                        <span class="file-upload-text">Choose file to upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="counsellor-declaration">
+                            <h3>The counsellor hereby confirms that:</h3>
+                            <ol>
+                                <li>The applicant's potential has been assessed and proposed action plan has been explained to the applicant along with the larger objective of the upliftment program.</li>
+                                <li>The proposed business/economic activity has potential in the suggested location and will increase income of the applicant over next three to five year in sustainable manner.</li>
+                                <li>The recommended economic upliftment plan is realistic and feasible in local mauza context.</li>
+                            </ol>
+                            
+                            <div class="comments-section">
+                                <label>Any other comments:</label>
+                                <textarea name="counsellor_comments" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="signature-grid">
+                                <div class="signature-field">
+                                    <label>Counsellor's Name</label>
+                                    <input type="text" name="counsellor_name" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Contact No.</label>
+                                    <input type="tel" name="counsellor_contact" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Date</label>
+                                    <input type="date" name="counsellor_date" required>
+                                </div>
+                            </div>
+                            <div class="signature-field">
+                                <label>Signature</label>
+                                <div class="file-upload-container">
+                                    <input type="file" class="file-upload-input" name="counsellor_signature" accept="image/*" required>
+                                    <div class="file-upload-label">
+                                        <i class="fas fa-upload file-upload-icon"></i>
+                                        <span class="file-upload-text">Choose file to upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="signature-grid">
+                                <div class="signature-field">
+                                    <label>TR Committee Member's Name</label>
+                                    <input type="text" name="tr_member_name" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Contact No.</label>
+                                    <input type="tel" name="tr_member_contact" required>
+                                </div>
+                                <div class="signature-field">
+                                    <label>Date</label>
+                                    <input type="date" name="tr_member_date" required>
+                                </div>
+                            </div>
+                            <div class="signature-field">
+                                <label>Signature</label>
+                                <div class="file-upload-container">
+                                    <input type="file" class="file-upload-input" name="tr_member_signature" accept="image/*" required>
+                                    <div class="file-upload-label">
+                                        <i class="fas fa-upload file-upload-icon"></i>
+                                        <span class="file-upload-text">Choose file to upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">Previous</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
+                </section>
+
+                <!-- Attachments Section -->
+                <section class="form-section" id="section6">
+                    <h2>Attachments</h2>
+                    <div class="attachments-section">
+                        <table class="attachments-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">No.</th>
+                                    <th width="45%">Description</th>
+                                    <th width="50%">Upload</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Photograph of exiting place of work and proposed place of business</td>
+                                    <td>
+                                        <div class="file-upload-container">
+                                            <input type="file" class="file-upload-input" name="business_photos[]" multiple accept="image/*">
+                                            <div class="file-upload-label">
+                                                <i class="fas fa-camera file-upload-icon"></i>
+                                                <span class="file-upload-text">Choose files to upload</span>
+                                            </div>
+                                        </div>
+                                        <small class="file-hint">You can select multiple photos</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Quotation of end-use of Enayat / Qardan amount whenever possible</td>
+                                    <td>
+                                        <div class="file-upload-container">
+                                            <input type="file" class="file-upload-input" name="quotations[]" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                                            <div class="file-upload-label">
+                                                <i class="fas fa-file-alt file-upload-icon"></i>
+                                                <span class="file-upload-text">Choose files to upload</span>
+                                            </div>
+                                        </div>
+                                        <small class="file-hint">You can upload multiple quotations</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Product photograph / brochure / marketing material (if any)</td>
+                                    <td>
+                                        <div class="file-upload-container">
+                                            <input type="file" class="file-upload-input" name="marketing_materials[]" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                                            <div class="file-upload-label">
+                                                <i class="fas fa-images file-upload-icon"></i>
+                                                <span class="file-upload-text">Choose files to upload</span>
+                                            </div>
+                                        </div>
+                                        <small class="file-hint">You can upload multiple files</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Any other documents applicant/counsellor may wish to attach</td>
+                                    <td>
+                                        <div class="file-upload-container">
+                                            <input type="file" class="file-upload-input" name="other_documents[]" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                                            <div class="file-upload-label">
+                                                <i class="fas fa-file file-upload-icon"></i>
+                                                <span class="file-upload-text">Choose files to upload</span>
+                                            </div>
+                                        </div>
+                                        <small class="file-hint">You can upload multiple documents</small>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev">Previous</button>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.step');
+    const sections = document.querySelectorAll('.form-section');
+
+    // Function to update active states
+    function updateActiveStates(stepIndex) {
+        // Update steps
+        steps.forEach((step, index) => {
+            if (index <= stepIndex) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+
+        // Update sections
+        sections.forEach((section, index) => {
+            if (index === stepIndex) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
+    }
+
+    // Add click event to steps
+    steps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+            updateActiveStates(index);
+        });
+    });
+
+    // Navigation button functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn-next')) {
+            const currentSection = e.target.closest('.form-section');
+            const currentIndex = Array.from(sections).indexOf(currentSection);
+            if (currentIndex < sections.length - 1) {
+                updateActiveStates(currentIndex + 1);
+            }
+        }
+        if (e.target.classList.contains('btn-prev')) {
+            const currentSection = e.target.closest('.form-section');
+            const currentIndex = Array.from(sections).indexOf(currentSection);
+            if (currentIndex > 0) {
+                updateActiveStates(currentIndex - 1);
+            }
+        }
+    });
+});
+</script>
+         

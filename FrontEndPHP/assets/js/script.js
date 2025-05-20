@@ -1,99 +1,161 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all required elements
-    const steps = document.querySelectorAll('.step');
     const sections = document.querySelectorAll('.form-section');
+    const steps = document.querySelectorAll('.step');
     let currentStep = 0;
 
-    console.log('Steps found:', steps.length);
-    console.log('Sections found:', sections.length);
+    // Show initial section
+    showSection(currentStep);
 
-    // Create navigation buttons
-    const navDiv = document.createElement('div');
-    navDiv.className = 'form-navigation';
-    
-    const prevBtn = document.createElement('button');
-    prevBtn.type = 'button';
-    prevBtn.className = 'btn-prev';
-    prevBtn.textContent = 'Previous';
-    
-    const nextBtn = document.createElement('button');
-    nextBtn.type = 'button';
-    nextBtn.className = 'btn-next';
-    nextBtn.textContent = 'Next';
-    
-    const submitBtn = document.createElement('button');
-    submitBtn.type = 'submit';
-    submitBtn.className = 'btn-submit';
-    submitBtn.textContent = 'Submit';
-
-    navDiv.appendChild(prevBtn);
-    navDiv.appendChild(nextBtn);
-    navDiv.appendChild(submitBtn);
-    document.querySelector('form').appendChild(navDiv);
-
-    // Function to show specific step
-    function showStep(stepIndex) {
-        // Validate step index
-        if (stepIndex < 0 || stepIndex >= sections.length) {
-            return;
-        }
-
-        sections.forEach((section, index) => {
-            section.style.display = index === stepIndex ? 'block' : 'none';
+    // Navigation button click handlers
+    document.querySelectorAll('.btn-prev').forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentStep > 0) {
+                currentStep--;
+                showSection(currentStep);
+                updateSteps();
+            }
         });
+    });
 
+    document.querySelectorAll('.btn-next').forEach(button => {
+        button.addEventListener('click', () => {
+            if (currentStep < sections.length - 1) {
+                currentStep++;
+                showSection(currentStep);
+                updateSteps();
+            }
+        });
+    });
+
+    function showSection(stepIndex) {
+        sections.forEach((section, index) => {
+            section.classList.toggle('active', index === stepIndex);
+        });
+        updateSteps();
+    }
+
+    function updateSteps() {
         steps.forEach((step, index) => {
-            if (index < stepIndex) {
+            if (index < currentStep) {
                 step.classList.add('completed');
                 step.classList.remove('active');
-            } else if (index === stepIndex) {
+            } else if (index === currentStep) {
                 step.classList.add('active');
                 step.classList.remove('completed');
             } else {
                 step.classList.remove('completed', 'active');
             }
         });
+    }
+});
 
-        // Update button visibility
-        prevBtn.style.display = stepIndex === 0 ? 'none' : 'block';
-        nextBtn.style.display = stepIndex === sections.length - 1 ? 'none' : 'block';
-        submitBtn.style.display = stepIndex === sections.length - 1 ? 'block' : 'none';
+// File Upload Preview
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInputs = document.querySelectorAll('input[type="file"]');
 
-        // Scroll to top of the form
-        document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
+    fileInputs.forEach(input => {
+        input.addEventListener('change', function(e) {
+            const files = e.target.files;
+            const container = input.closest('.file-upload-container');
+            const previewContainer = container.querySelector('.file-preview-container') || 
+                                   createPreviewContainer(container);
+
+            previewContainer.innerHTML = '';
+
+            Array.from(files).forEach(file => {
+                const fileName = document.createElement('div');
+                fileName.className = 'file-name';
+                fileName.textContent = file.name;
+                previewContainer.appendChild(fileName);
+
+                if (file.type.startsWith('image/')) {
+                    const preview = document.createElement('img');
+                    preview.className = 'file-preview';
+                    preview.file = file;
+                    previewContainer.appendChild(preview);
+
+                    const reader = new FileReader();
+                    reader.onload = (function(aImg) { 
+                        return function(e) { aImg.src = e.target.result; }; 
+                    })(preview);
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            previewContainer.classList.add('active');
+        });
+    });
+
+    function createPreviewContainer(container) {
+        const previewContainer = document.createElement('div');
+        previewContainer.className = 'file-preview-container';
+        container.appendChild(previewContainer);
+        return previewContainer;
+    }
+});
+
+// Add Family Member functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Family Members Table with one row
+    const familyMembersTable = document.querySelector('#familyMembersTable tbody');
+    if (familyMembersTable && familyMembersTable.rows.length === 0) {
+        addFamilyMemberRow(1);
     }
 
-    // Add click handlers for navigation
-    nextBtn.addEventListener('click', () => {
-        console.log('Next button clicked, current step:', currentStep);
-        if (currentStep < sections.length - 1) {
-            currentStep++;
-            showStep(currentStep);
-            console.log('Moved to step:', currentStep);
-        }
-    });
-
-    prevBtn.addEventListener('click', () => {
-        if (currentStep > 0) {
-            currentStep--;
-            showStep(currentStep);
-        }
-    });
-
-    // Add click handlers for step indicators
-    steps.forEach((step, index) => {
-        step.addEventListener('click', () => {
-            // Only allow clicking on completed steps or the next available step
-            if (index <= currentStep + 1) {
-                currentStep = index;
-                showStep(currentStep);
-            }
+    // Add Family Member button click handler
+    const addFamilyMemberBtn = document.querySelector('#addFamilyMember');
+    if (addFamilyMemberBtn && familyMembersTable) {
+        addFamilyMemberBtn.addEventListener('click', function() {
+            const newRowNumber = familyMembersTable.rows.length + 1;
+            addFamilyMemberRow(newRowNumber);
         });
+    }
 
-        // Add hover effect to show step is clickable
-        step.style.cursor = 'pointer';
-    });
+    // Function to add a new family member row
+    function addFamilyMemberRow(rowNumber) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${rowNumber}</td>
+            <td><input type="text" name="family_members[${rowNumber-1}][name]" placeholder="Name" required></td>
+            <td><input type="text" name="family_members[${rowNumber-1}][age_relation]" placeholder="Age & Relation" required></td>
+            <td><input type="text" name="family_members[${rowNumber-1}][education_occupation]" placeholder="Education/Occupation" required></td>
+            <td><input type="number" name="family_members[${rowNumber-1}][annual_income]" placeholder="Annual Income" required></td>
+            <td>
+                <button type="button" class="delete-btn" onclick="deleteRow(this)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        `;
+        familyMembersTable.appendChild(newRow);
+    }
 
-    // Initialize first step
-    showStep(0);
+    // Delete row function (make it globally accessible)
+    window.deleteRow = function(button) {
+        const row = button.closest('tr');
+        const tbody = row.closest('tbody');
+        
+        // Don't delete if it's the last row
+        if (tbody.rows.length > 1) {
+            row.remove();
+            reorderRows(tbody);
+        }
+    }
+
+    // Reorder row numbers
+    function reorderRows(tbody) {
+        const rows = tbody.getElementsByTagName('tr');
+        Array.from(rows).forEach((row, index) => {
+            const rowNum = index + 1;
+            row.cells[0].textContent = rowNum;
+            
+            // Update input field names
+            row.querySelectorAll('input').forEach(input => {
+                const name = input.getAttribute('name');
+                if (name) {
+                    const newName = name.replace(/\[\d+\]/, `[${index}]`);
+                    input.setAttribute('name', newName);
+                }
+            });
+        });
+    }
 });
