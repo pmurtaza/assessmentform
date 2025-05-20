@@ -1,41 +1,52 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Get all required elements
     const steps = document.querySelectorAll('.step');
     const sections = document.querySelectorAll('.form-section');
-    const nextBtn = document.querySelector('.btn-next');
-    const prevBtn = document.querySelector('.btn-prev');
-    const submitBtn = document.querySelector('.btn-submit');
-    let currentStep = 1;
+    let currentStep = 0;
 
-    // Initialize form
-    initializeForm();
+    console.log('Steps found:', steps.length);
+    console.log('Sections found:', sections.length);
 
-    function initializeForm() {
-        // Hide all sections except first one
+    // Create navigation buttons
+    const navDiv = document.createElement('div');
+    navDiv.className = 'form-navigation';
+    
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'btn-prev';
+    prevBtn.textContent = 'Previous';
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'btn-next';
+    nextBtn.textContent = 'Next';
+    
+    const submitBtn = document.createElement('button');
+    submitBtn.type = 'submit';
+    submitBtn.className = 'btn-submit';
+    submitBtn.textContent = 'Submit';
+
+    navDiv.appendChild(prevBtn);
+    navDiv.appendChild(nextBtn);
+    navDiv.appendChild(submitBtn);
+    document.querySelector('form').appendChild(navDiv);
+
+    // Function to show specific step
+    function showStep(stepIndex) {
+        // Validate step index
+        if (stepIndex < 0 || stepIndex >= sections.length) {
+            return;
+        }
+
         sections.forEach((section, index) => {
-            section.style.display = index === 0 ? 'block' : 'none';
+            section.style.display = index === stepIndex ? 'block' : 'none';
         });
 
-        // Set first step as active
-        steps[0].classList.add('active');
-        
-        // Initialize button states
-        updateNavigationButtons(1);
-    }
-
-    function navigateToStep(stepNumber) {
-        if (stepNumber < 1 || stepNumber > sections.length) return;
-
-        // Update sections visibility
-        sections.forEach((section, index) => {
-            section.style.display = index === stepNumber - 1 ? 'block' : 'none';
-        });
-
-        // Update steps
         steps.forEach((step, index) => {
-            if (index < stepNumber - 1) {
+            if (index < stepIndex) {
                 step.classList.add('completed');
                 step.classList.remove('active');
-            } else if (index === stepNumber - 1) {
+            } else if (index === stepIndex) {
                 step.classList.add('active');
                 step.classList.remove('completed');
             } else {
@@ -43,42 +54,46 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        updateNavigationButtons(stepNumber);
-        currentStep = stepNumber;
+        // Update button visibility
+        prevBtn.style.display = stepIndex === 0 ? 'none' : 'block';
+        nextBtn.style.display = stepIndex === sections.length - 1 ? 'none' : 'block';
+        submitBtn.style.display = stepIndex === sections.length - 1 ? 'block' : 'none';
+
+        // Scroll to top of the form
+        document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Step click handler
+    // Add click handlers for navigation
+    nextBtn.addEventListener('click', () => {
+        console.log('Next button clicked, current step:', currentStep);
+        if (currentStep < sections.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+            console.log('Moved to step:', currentStep);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentStep > 0) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    });
+
+    // Add click handlers for step indicators
     steps.forEach((step, index) => {
         step.addEventListener('click', () => {
-            navigateToStep(index + 1);
+            // Only allow clicking on completed steps or the next available step
+            if (index <= currentStep + 1) {
+                currentStep = index;
+                showStep(currentStep);
+            }
         });
+
+        // Add hover effect to show step is clickable
+        step.style.cursor = 'pointer';
     });
 
-    // Next button handler
-    nextBtn.addEventListener('click', () => {
-        if (currentStep < sections.length) {
-            navigateToStep(currentStep + 1);
-        }
-    });
-
-    // Previous button handler
-    prevBtn.addEventListener('click', () => {
-        if (currentStep > 1) {
-            navigateToStep(currentStep - 1);
-        }
-    });
-
-    function updateNavigationButtons(step) {
-        // Show/hide previous button
-        prevBtn.style.display = step === 1 ? 'none' : 'block';
-        
-        // Show/hide next/submit buttons
-        if (step === sections.length) {
-            nextBtn.style.display = 'none';
-            submitBtn.style.display = 'block';
-        } else {
-            nextBtn.style.display = 'block';
-            submitBtn.style.display = 'none';
-        }
-    }
+    // Initialize first step
+    showStep(0);
 });
